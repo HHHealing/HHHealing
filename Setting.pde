@@ -7,10 +7,8 @@ class Setting{
   void btn(){
     img = loadImage("option.png"); // 옵션창 이미지 설정
     image(img, 0, 0, size, size); // 이미지 삽입
-    if(mousePressed){
-      
-    }
-    }
+
+  }
   
   
   void mouseClicked(){
