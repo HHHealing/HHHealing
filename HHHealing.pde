@@ -4,7 +4,7 @@ PImage img;
 Minim minim;
 AudioPlayer song1, song2;
 
-Setting set = new Setting();
+Setting set = new Setting(); // 옵션창 객체 생성
 
 void setup() {
   minim = new Minim(this);
@@ -23,7 +23,7 @@ void setup() {
 
 void draw() {
   image(img, 0, 0, displayWidth/3, displayHeight/2);
-  set.btn();
+  set.btn(); // 옵션창 만들기
 }
 
 void stop() {
