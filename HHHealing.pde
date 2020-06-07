@@ -3,7 +3,7 @@ import ddf.minim.*;
 PImage img;
 Minim minim;
 AudioPlayer song1, song2;
-boolean CheckOption = false; // 설정창이 켜져있는지 확인하는 변수
+boolean CheckOption = false; //  설정창이 켜져있는지 확인하는 변수
 
 Setting set = new Setting(); // 옵션창 객체 생성
 
