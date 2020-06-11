@@ -8,16 +8,16 @@ class Setting{
   void btn(){
     img = loadImage("option.png"); // 설정창 이미지 설정
     image(img, 0, 0, size, size); // 이미지 삽입
-
     if(CheckOption){ // 설정창이 켜져 있을 경우
-      if(mousePressed && !(mouseX >= x && mouseY <= displayWidth/4 - x/2 &&  mouseY <= y && mouseY >= displayHeight/4 - y/2)){ // 설정창 외의 곳을 클릭한 경우 설정창 닫기
+    
+      if(mousePressed && !(mouseX >= displayWidth/4 - x/2 && mouseX <= displayWidth/4 - x/2 + x && mouseY >= displayHeight/4 - y/2 && mouseY <= displayHeight/4 - y/2 + y)){ // 설정창 외의 곳을 클릭한 경우 설정창 닫기
         CheckOption = false;
       }
       else{ // 설정창 내부를 클릭한 경우는 그대로 출력
         drawOption(); 
       }
     }
-    else if(mousePressed && CheckOption == false){ // 설정창이 켜져 있지 않을 경우
+    else if(mousePressed && !CheckOption){ // 설정창이 켜져 있지 않을 경우
       CheckOption = mouseClicked(); 
     }
     
@@ -26,20 +26,14 @@ class Setting{
   boolean mouseClicked(){
     if(mouseX <= size && mouseY <= size){ // 설정 버튼을 클릭했을 때 설정창 켜기
        drawOption();
-       CheckOption = true;
-       return CheckOption;
+       return true;
     }
     else{ // 설정 버튼 외의 곳을 클릭했을 경우 아무일도 일어나지 않음
        return CheckOption; 
     }
   }
-  
-  void draw(){
-    
-  }
-  
-  
+
   void drawOption(){  
-    rect(displayWidth/4 - x/2, displayHeight/4 - y/2, x, y);  
+    rect(displayWidth/4 - x/2, displayHeight/4 - y/2, x, y);  // 330, 70, 300, 400
   }
 }
