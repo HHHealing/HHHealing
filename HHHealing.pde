@@ -3,11 +3,12 @@ import ddf.minim.*;
 PImage img;
 Minim minim;
 AudioPlayer song1, song2;
-
+public static ControlP5 slider; 
 
 Setting set = new Setting(); // 옵션창 객체 생성
 
 void setup() {
+  slider = new ControlP5(this);
   minim = new Minim(this);
   int disW = displayWidth/2;
   int disH = displayHeight/2;
