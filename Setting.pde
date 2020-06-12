@@ -12,10 +12,10 @@ class Setting{
   ControlP5 slider;  
   Slider sl;
   boolean CheckSlider = false;
-
+  HScrollbar hs1;
   
   void btn(){
-    
+    hs1 = new HScrollbar(200, 100, 100, 16, 16);
     SpeakerOn = loadImage("speaker_on.png");
     SpeakerOff = loadImage("speaker_off.png");
     
@@ -53,6 +53,8 @@ class Setting{
       drawSliderBar();
       CheckSlider = true;
     }
+    hs1.update();
+    hs1.display(); 
   }
 
   void drawSliderBar(){  
