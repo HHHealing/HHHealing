@@ -19,6 +19,7 @@ void setup() {
   surface.setResizable(false);
   surface.setSize(disW, disH);
   
+  
   //song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
   //song2.loop();
 }

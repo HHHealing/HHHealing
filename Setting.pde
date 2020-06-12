@@ -15,7 +15,7 @@ class Setting{
   HScrollbar hs1;
   
   void btn(){
-    hs1 = new HScrollbar(200, 100, 100, 16, 16);
+    hs1 = new HScrollbar(378, 84, 100, 16, 16);
     SpeakerOn = loadImage("speaker_on.png");
     SpeakerOff = loadImage("speaker_off.png");
     
@@ -47,6 +47,7 @@ class Setting{
   }
 
   void drawOption(){  
+    fill(204, 102, 0);
     rect(displayWidth/4 - x/2, displayHeight/4 - y/2, x, y);  // 330, 70, 300, 400        
     image(SpeakerOn, displayWidth/4 - x/2, displayHeight/4 - y/2, size, size);
     if(!CheckSlider){
