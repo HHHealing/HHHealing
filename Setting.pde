@@ -13,9 +13,10 @@ class Setting{
   Slider sl;
   boolean CheckSlider = false;
   HScrollbar hs1;
+  int volume = 50;
   
   void btn(){
-    hs1 = new HScrollbar(378, 84, 100, 16, 16);
+    hs1 = new HScrollbar(378, 84, 100, 16, 16, volume);
     SpeakerOn = loadImage("speaker_on.png");
     SpeakerOff = loadImage("speaker_off.png");
     
@@ -51,13 +52,14 @@ class Setting{
     rect(displayWidth/4 - x/2, displayHeight/4 - y/2, x, y);  // 330, 70, 300, 400        
     image(SpeakerOn, displayWidth/4 - x/2, displayHeight/4 - y/2, size, size);
     if(!CheckSlider){
-      drawSliderBar();
+      //drawSliderBar();
       CheckSlider = true;
     }
     hs1.update();
-    hs1.display(); 
+    hs1.display();
+    volume = round(hs1.getPos()); // 현재의 볼륨을 저장
   }
-
+/*
   void drawSliderBar(){  
     slider = HHHealing.slider;
     sl = slider.addSlider("mc").setPosition(100, 100).setRange(0, 100);
@@ -70,4 +72,5 @@ class Setting{
   }; 
   sl.addCallback(adjustLabel);
   }
+  */
 }

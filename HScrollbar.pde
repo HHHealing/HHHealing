@@ -8,14 +8,14 @@ class HScrollbar {
   boolean locked;
   float ratio;
 
-  HScrollbar (float xp, float yp, int sw, int sh, int l) {
+  HScrollbar (float xp, float yp, int sw, int sh, int l, int w) { // w: 현재 볼륨의 위치
     swidth = sw;
     sheight = sh;
     int widthtoheight = sw - sh;
     ratio = (float)sw / (float)widthtoheight;
     xpos = xp;
     ypos = yp-sheight/2;
-    spos = xpos + swidth/2 - sheight/2;
+    spos = xpos + w - sheight/2;
     newspos = spos;
     sposMin = xpos;
     sposMax = xpos + swidth - sheight;
@@ -68,6 +68,6 @@ class HScrollbar {
   }
 
   float getPos() {
-    return ((newspos - 200.0) * (100.0/84.0));
+    return ((newspos - xpos) * (100.0/84.0));
   }
 }
