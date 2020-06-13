@@ -1,3 +1,4 @@
+/*
 import gab.opencv.*;
 import processing.video.*;
 import java.awt.*;
@@ -21,3 +22,4 @@ void draw() {
 void captureEvent(Capture c) {
   c.read();
 }
+*/
