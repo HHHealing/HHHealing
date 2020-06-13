@@ -73,4 +73,8 @@ class Setting{
   sl.addCallback(adjustLabel);
   }
   */
+  
+  int getHs1Volume(){
+     return volume; 
+  }
 }
