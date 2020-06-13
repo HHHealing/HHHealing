@@ -35,19 +35,15 @@ class HScrollbar {
       locked = false;
     }
     if (locked) {
-      newspos = constrain(mouseX-sheight/2, sposMin, sposMax);
-    }
-    if (abs(newspos - spos) > 1) {
-      spos = spos + (newspos-spos);
+      spos = mouseX;
+      //constrain(mouseX-sheight/2, sposMin, sposMax);
     }
   }
 
-  float constrain(float val, float minv, float maxv) {
-    return min(max(val, minv), maxv);
-  }
+
 
   boolean overEvent() {
-    if (mouseX > xpos && mouseX < xpos+swidth &&
+    if (mouseX > xpos - (sheight/2) - 2 && mouseX < xpos+swidth - (sheight/2) + 1 &&
        mouseY > ypos && mouseY < ypos+sheight) {
       return true;
     } else {
@@ -68,6 +64,7 @@ class HScrollbar {
   }
 
   float getPos() {
-    return ((newspos - xpos) * (100.0/84.0));
+    return sheight/2 - xpos + spos;
+    //((spos - xpos) * (100.0/84.0));
   }
 }
