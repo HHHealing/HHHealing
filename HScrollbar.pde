@@ -63,7 +63,12 @@ class HScrollbar {
     rect(spos, ypos, sheight, sheight);
   }
 
-  float getPos() {
+  float getPos1() {
+    return sheight/2 - xpos + spos;
+    //((spos - xpos) * (100.0/84.0));
+  }
+  
+  float getPos2() {
     return sheight/2 - xpos + spos;
     //((spos - xpos) * (100.0/84.0));
   }

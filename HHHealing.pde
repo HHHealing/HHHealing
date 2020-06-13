@@ -20,15 +20,14 @@ void setup() {
   surface.setSize(disW, disH);
   
   
-  song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
-  
+  //song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
   //song2.loop();
 }
 
 void draw() {  
-
+  
   song1.setGain(set.getHs1Volume()* 0.86 - 80);
-  print(song1.getGain() + "     " );
+  song2.setGain(set.getHs2Volume()* 0.86 - 80);
   image(img, 0, 0, displayWidth/3, displayHeight/2);
   set.btn();
 }
