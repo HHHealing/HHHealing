@@ -22,11 +22,13 @@ void setup(){
 void draw(){
   if(video.available() == true){
     video.read();
-    
+//    scale(-1,1);
+//    image(video, -width, 0);
     image(video, 0, 0);
- 
+    
     opencv = new OpenCV(this, video);
-    opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);
+    opencv.loadCascade(OpenCV.CASCADE_MOUTH);
+//    opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);
     faces = opencv.detect();
     
     for(int i=0; i<faces.length; i++){
