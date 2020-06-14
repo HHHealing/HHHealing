@@ -10,6 +10,7 @@ int mx, my;
 
 Setting set = new Setting(); // 옵션창 객체 생성
 Effect ef = new Effect();
+memo memo = new memo();
 
 void setup() {
   minim = new Minim(this);
@@ -22,6 +23,7 @@ void setup() {
   surface.setResizable(false);
   surface.setSize(disW, disH);
   ef.ImgSet();
+  memo.set();
   
   //song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
   //song2.loop();
