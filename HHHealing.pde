@@ -39,7 +39,9 @@ void draw() {
     my = mouseY;
     i = 0;
   }
-  ef.drawImage(mx, my, i); 
+  if(!set.CheckOption() && mx <= displayWidth/3){
+    ef.drawImage(mx, my, i); 
+  }
   i ++;
   
 

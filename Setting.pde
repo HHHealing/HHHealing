@@ -101,4 +101,8 @@ class Setting{
   int getHs2Volume(){
      return bVolume; 
   }
+  
+  boolean CheckOption(){
+     return CheckOption; 
+  }
 }
