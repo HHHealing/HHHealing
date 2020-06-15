@@ -5,32 +5,39 @@ class memo {
   IntList array;
   int leng;
   ArrayList<IntList> memoArray;
+  IntList A;
 
   void set() {
     img = loadImage("memo.png");
     img.resize(0, size);
-    
+
     memoArray = new ArrayList();
   }
 
   void Clicked() {
     image(img, displayWidth/2 - size, 0);
     array = new IntList();
-    
+    A = new IntList();
     if (mouseClicked()) {
 
       leng = memoArray.size();
-      
-      a = displayWidth/2 + 20;
-      b = size + 20 + (leng * 20);
-      c = 50;
-      d = 30;
+
+      a = displayWidth/3 + 40;
+      b = size + 20 + (leng * 80);
+      c = 200;
+      d = 70;
       array.append(a);
       array.append(b);
       array.append(c);
-      array.append(d);      
-      memoArray.add(array);
-      
+      array.append(d); 
+      if (memoArray.size() != 5) {
+        memoArray.add(array);
+      }
+    }
+    for (int i = 0; i < memoArray.size(); i ++) {
+      //print("A");
+      A = memoArray.get(i);
+      drawMemo(A);
     }
   }
 
@@ -42,7 +49,7 @@ class memo {
     }
   }
 
-  void drawMemo() {
-    
+  void drawMemo(IntList Array) {
+    rect(Array.get(0), Array.get(1), Array.get(2), Array.get(3));
   }
 }
