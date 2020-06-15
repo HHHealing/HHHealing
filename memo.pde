@@ -1,8 +1,10 @@
 class memo{
    PImage img;
+   int size = 100;
    
    void set(){
       img = loadImage("memo.png");
-      image(img, 0, 0);
+      img.resize(0, size);
+      image(img, displayWidth/2 - size, 0);
    }
 }
