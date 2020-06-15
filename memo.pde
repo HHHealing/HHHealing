@@ -6,6 +6,7 @@ class memo {
   int leng;
   ArrayList<IntList> memoArray;
   IntList A;
+  String result = "";
 
   void set() {
     img = loadImage("memo.png");
@@ -39,6 +40,7 @@ class memo {
       A = memoArray.get(i);
       drawMemo(A);
     }
+    text(result, a, b);
   }
 
   boolean mouseClicked() {
@@ -51,5 +53,10 @@ class memo {
 
   void drawMemo(IntList Array) {
     rect(Array.get(0), Array.get(1), Array.get(2), Array.get(3));
+  }
+  
+  void keyPressed(){
+    result += key;
+    print("A");
   }
 }
