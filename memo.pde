@@ -9,11 +9,12 @@ class memo {
   void set() {
     img = loadImage("memo.png");
     img.resize(0, size);
-    image(img, displayWidth/2 - size, 0);
+    
     memoArray = new ArrayList();
   }
 
   void Clicked() {
+    image(img, displayWidth/2 - size, 0);
     array = new IntList();
     
     if (mouseClicked()) {
@@ -29,9 +30,7 @@ class memo {
       array.append(c);
       array.append(d);      
       memoArray.add(array);
-      for (int i = 0; i < memoArray.size(); i ++) {
-        print(memoArray.get(i) + ", ");
-      }
+      
     }
   }
 
@@ -44,5 +43,6 @@ class memo {
   }
 
   void drawMemo() {
+    
   }
 }
