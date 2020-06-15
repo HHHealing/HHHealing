@@ -47,7 +47,7 @@ void draw() {
   i ++;
   
   memo.set();
-  
+  memo.Clicked();
 }
 
 
