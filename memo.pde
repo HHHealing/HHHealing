@@ -14,8 +14,8 @@ class memo {
     img = loadImage("memo.png");
     img.resize(0, size);
     word = new String[5];
-    for(int i = 0; i < word.length; i ++){
-        word[i] = "";
+    for (int i = 0; i < word.length; i ++) {
+      word[i] = "";
     }
     memoArray = new ArrayList();
   }
@@ -46,9 +46,8 @@ class memo {
     }
     if (mousePressed) {
       number = getMemoPoint();
-      
     }
-    
+
     showWord();
   }
 
@@ -71,31 +70,32 @@ class memo {
 
   int getMemoPoint() {
     int result = 100;
-    
+
     if (mouseX >= a && mouseX <= a + c) {
       for (int i = 0; i < memoArray.size(); i ++) {  
         if (round((mouseY - 10*i - (size + 20))/70) == i) {
           result = i;
-          
         }
       }
     }
     return result;
   }
-  
-  void plusWord(String w){
-    if(number <= 4){
+
+  void plusWord(String w) {
+    if (number <= 4) {
       word[number] += w;
     }
   }
-  
-  void showWord(){
+
+  void showWord() {
     fill(0);
-      for(int i = 0; i < word.length; i ++){
-        
-         text(word[i], displayWidth/3 + 60, size + 55 + (i * 80)); 
-      }
+    for (int i = 0; i < word.length; i ++) {
+      textSize(20);
+      text(word[i], displayWidth/3 + 60, size + 60 + (i * 80));
+    }
   }
   
-  
+  void memoDragged(int mx, int my, int number){
+    memoArray.get(number);
+  }
 }
