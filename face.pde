@@ -6,7 +6,7 @@
 //OpenCV opencv;
 //Rectangle[] faces;
 
-<<<<<<< HEAD
+/*
 PImage img;
 
 void setup(){
@@ -30,7 +30,8 @@ void draw(){
     }
   }
 }
-=======
+*/
+
 //void setup(){
 //  size(848, 480);
   
@@ -63,4 +64,3 @@ void draw(){
 //    }
 //  }
 //}
->>>>>>> 1afa09647ec45db817d816dc5e8af3ba64c8dfdc
