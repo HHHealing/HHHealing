@@ -24,7 +24,7 @@ class memo {
     image(img, displayWidth/2 - size, 0);
     array = new IntList();
     A = new IntList();
-    if (mouseClicked()) {
+    if (mouseClick()) {
 
       leng = memoArray.size();
 
@@ -41,7 +41,6 @@ class memo {
       }
     }
     for (int i = 0; i < memoArray.size(); i ++) {
-      //print("A");
       A = memoArray.get(i);
       drawMemo(A);
     }
@@ -53,7 +52,7 @@ class memo {
     showWord();
   }
 
-  boolean mouseClicked() {
+  boolean mouseClick() {
     if (mousePressed && mouseX >= displayWidth/2 - size && mouseX <= displayWidth/2 && mouseY <= size) {
       return true;
     } else {
@@ -62,6 +61,7 @@ class memo {
   }
 
   void drawMemo(IntList Array) {
+    fill(255);
     rect(Array.get(0), Array.get(1), Array.get(2), Array.get(3));
   }
 
