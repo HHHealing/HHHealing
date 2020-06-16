@@ -50,6 +50,10 @@ void draw() {
   memo.Clicked();
 }
 
+void keyPressed(){
+    memo.plusWord(key + "");
+}
+
 
 
 void stop() {

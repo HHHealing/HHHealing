@@ -8,6 +8,7 @@ class memo {
   IntList A;
   String result = "";
   String [] word;
+  int number;
 
   void set() {
     img = loadImage("memo.png");
@@ -45,7 +46,7 @@ class memo {
       drawMemo(A);
     }
     if (mousePressed) {
-      print(getMemoPoint());
+      number = getMemoPoint();
       
     }
     
@@ -82,13 +83,19 @@ class memo {
     return result;
   }
   
-  void plusWord(String w, int number){
+  void plusWord(String w){
+    if(number <= 4){
       word[number] += w;
+    }
   }
   
   void showWord(){
+    fill(0);
       for(int i = 0; i < word.length; i ++){
+        
          text(word[i], displayWidth/3 + 60, size + 55 + (i * 80)); 
       }
   }
+  
+  
 }
