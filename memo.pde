@@ -101,11 +101,11 @@ class memo {
         //memoArray.get(number).set(0, a);
         //memoArray.get(number).set(1, size + 20 + (number * 80));
 
-        x = mx - memoArray.get(number).get(0);
-        y = my - memoArray.get(number).get(1);
+        //x = mx - memoArray.get(number).get(0);
+        //y = my - memoArray.get(number).get(1);
 
-        memoArray.get(number).set(0, mouseX - x);
-        memoArray.get(number).set(1, mouseY - y);
+        memoArray.get(number).set(0, mx);
+        memoArray.get(number).set(1, my);
         //print(memoArray.get(number).get(0));
       
     }
