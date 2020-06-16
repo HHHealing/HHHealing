@@ -40,6 +40,7 @@ void draw() {
     mx = mouseX;
     my = mouseY;
     i = 0;
+    memoCheck = true;
   }
   if (!set.CheckOption() && mx <= displayWidth/3) {
     ef.drawImage(mx, my, i);
@@ -48,6 +49,7 @@ void draw() {
 
 
   memo.Clicked();
+  
 }
 
 void keyPressed() {
