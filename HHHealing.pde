@@ -6,8 +6,7 @@ AudioPlayer song1, song2;
 public static ControlP5 slider; 
 int i;
 boolean Check = false;
-boolean memoCheck = true;
-int mx, my;
+int mx, my ;
 
 Setting set = new Setting(); // 옵션창 객체 생성
 Effect ef = new Effect();
@@ -56,14 +55,7 @@ void keyPressed() {
 }
 
 void mouseDragged() {
-  memo.memoDragged(mouseX, mouseY, memo.getMemoPoint(), memoCheck);
-  if (mousePressed) {
-    memoCheck = false;
-  } 
-  else {
-    memoCheck = true;
-  }
-  
+  memo.memoDragged(mouseX, mouseY, memo.getMemoPoint());
 }
 
 

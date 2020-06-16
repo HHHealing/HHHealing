@@ -96,16 +96,18 @@ class memo {
     }
   }
 
-  void memoDragged(int mx, int my, int number, boolean Check) {
-    fill(255);
+  void memoDragged(int mx, int my, int number) {
     if (number <= 4) {
-      if (Check) {
-        x = mx - memoArray.get(number).get(0) ;
+        //memoArray.get(number).set(0, a);
+        //memoArray.get(number).set(1, size + 20 + (number * 80));
+
+        x = mx - memoArray.get(number).get(0);
         y = my - memoArray.get(number).get(1);
-      }
-      print(x + ", " + y);
-      memoArray.get(number).set(0, mouseX - x);
-      memoArray.get(number).set(1, mouseY - y);
+
+        memoArray.get(number).set(0, mouseX - x);
+        memoArray.get(number).set(1, mouseY - y);
+        //print(memoArray.get(number).get(0));
+      
     }
   }
 }
