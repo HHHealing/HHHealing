@@ -9,6 +9,7 @@ class memo {
   String result = "";
   String [] word;
   int number;
+  int x, y;
 
   void set() {
     img = loadImage("memo.png");
@@ -94,8 +95,17 @@ class memo {
       text(word[i], displayWidth/3 + 60, size + 60 + (i * 80));
     }
   }
-  
-  void memoDragged(int mx, int my, int number){
-    memoArray.get(number);
+
+  void memoDragged(int mx, int my, int number, boolean Check) {
+    fill(255);
+    if (number <= 4) {
+      if (Check) {
+        x = mx - memoArray.get(number).get(0) ;
+        y = my - memoArray.get(number).get(1);
+      }
+      print(x + ", " + y);
+      memoArray.get(number).set(0, mouseX - x);
+      memoArray.get(number).set(1, mouseY - y);
+    }
   }
 }
