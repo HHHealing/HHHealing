@@ -40,7 +40,10 @@ class memo {
       A = memoArray.get(i);
       drawMemo(A);
     }
-    text(result, a, b);
+    if (mousePressed) {
+      print(getMemoPoint());
+      
+    }
   }
 
   boolean mouseClicked() {
@@ -54,9 +57,22 @@ class memo {
   void drawMemo(IntList Array) {
     rect(Array.get(0), Array.get(1), Array.get(2), Array.get(3));
   }
-  
-  void keyPressed(){
-    result += key;
-    print("A");
+
+  int getMemoSize() {
+    return memoArray.size();
+  }
+
+  int getMemoPoint() {
+    int result = 100;
+    
+    if (mouseX >= a && mouseX <= a + c) {
+      for (int i = 0; i < memoArray.size(); i ++) {  
+        if (round((mouseY - 10*i - (size + 20))/70) == i) {
+          result = i;
+          
+        }
+      }
+    }
+    return result;
   }
 }
