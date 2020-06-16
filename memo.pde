@@ -7,11 +7,15 @@ class memo {
   ArrayList<IntList> memoArray;
   IntList A;
   String result = "";
+  String [] word;
 
   void set() {
     img = loadImage("memo.png");
     img.resize(0, size);
-
+    word = new String[5];
+    for(int i = 0; i < word.length; i ++){
+        word[i] = "";
+    }
     memoArray = new ArrayList();
   }
 
@@ -44,6 +48,8 @@ class memo {
       print(getMemoPoint());
       
     }
+    
+    showWord();
   }
 
   boolean mouseClicked() {
@@ -74,5 +80,15 @@ class memo {
       }
     }
     return result;
+  }
+  
+  void plusWord(String w, int number){
+      word[number] += w;
+  }
+  
+  void showWord(){
+      for(int i = 0; i < word.length; i ++){
+         text(word[i], displayWidth/3 + 60, size + 55 + (i * 80)); 
+      }
   }
 }
