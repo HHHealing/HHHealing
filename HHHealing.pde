@@ -7,6 +7,8 @@ public static ControlP5 slider;
 int i;
 boolean Check = false;
 int mx, my ;
+int a;
+IntList clikckedMemo;
 
 Setting set = new Setting(); // 옵션창 객체 생성
 Effect ef = new Effect();
@@ -40,7 +42,6 @@ void draw() {
     mx = mouseX;
     my = mouseY;
     i = 0;
-
   }
   if (!set.CheckOption() && mx <= displayWidth/3) {
     ef.drawImage(mx, my, i);
@@ -49,17 +50,37 @@ void draw() {
 
 
   memo.Clicked();
-  
 }
 
 void keyPressed() {
   memo.plusWord(key + "");
 }
 
-void mouseDragged() {
-  memo.memoDragged(mouseX, mouseY, memo.getMemoPoint());
+void mouseMoved() {    
+  if (!mousePressed) {
+    a = memo.getMemoPoint(); 
+    clikckedMemo = new IntList();
+    if (a <= 4) {
+      clikckedMemo = memo.getMemoStatus(a);
+    }
+  }
 }
 
+void mouseDragged() {
+  memo.memoDragged(mouseX, mouseY, a); 
+}
+
+void mouseReleased() {
+    if (mouseX <= 40 && mouseY <= 40) {
+    } 
+    else {
+      if(a <= 4){
+        print("A");
+        memo.memoNonFire(clikckedMemo, a);
+      }
+    }
+  
+}
 
 
 void stop() {
