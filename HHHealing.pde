@@ -8,7 +8,7 @@ int i;
 boolean Check = false;
 int mx, my ;
 int a;
-IntList clikckedMemo;
+
 
 Setting set = new Setting(); // 옵션창 객체 생성
 Effect ef = new Effect();
@@ -59,27 +59,27 @@ void keyPressed() {
 void mouseMoved() {    
   if (!mousePressed) {
     a = memo.getMemoPoint(); 
-    clikckedMemo = new IntList();
-    if (a <= 4) {
-      clikckedMemo = memo.getMemoStatus(a);
-    }
   }
+
 }
 
 void mouseDragged() {
+  //background(0);
   memo.memoDragged(mouseX, mouseY, a); 
+  for (int i = 0; i < memo.getArrayList().size(); i ++) {
+    memo.drawMemo(memo.getArrayList().get(i));
+  }
 }
 
 void mouseReleased() {
-    if (mouseX <= 40 && mouseY <= 40) {
-    } 
-    else {
-      if(a <= 4){
-        print("A");
-        memo.memoNonFire(clikckedMemo, a);
-      }
+  if (mouseX <= 40 && mouseY <= 40) {
+  } 
+  else {
+    if (a <= 4) {
+      memo.memoDragged(680, 120 + 80 * a, a);
+      //print(clikckedMemo + ", " + a + "   ");
     }
-  
+  }
 }
 
 

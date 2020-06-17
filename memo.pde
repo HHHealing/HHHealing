@@ -50,6 +50,7 @@ class memo {
     }
 
     showWord();
+
   }
 
   boolean mouseClick() {
@@ -75,7 +76,13 @@ class memo {
     if (mouseX >= a && mouseX <= a + c) {
       for (int i = 0; i < memoArray.size(); i ++) {  
         if (round((mouseY - 10*i - (size + 20))/70) == i) {
-          result = i;
+          if (i == 0) {
+            if(mouseY >= size + 20)
+            result = i;
+          }
+          else {
+            result = i;
+          }
         }
       }
     }
@@ -114,8 +121,12 @@ class memo {
 
     return memoArray.get(num);
   }
+
+  void memoNonFire(IntList list, int num) {
+    memoArray.set(num, list);
+  }
   
-  void memoNonFire(IntList list, int num){
-      memoArray.set(num, list);
+  ArrayList<IntList> getArrayList(){
+   return memoArray;   
   }
 }
