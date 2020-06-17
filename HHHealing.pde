@@ -32,7 +32,7 @@ void setup() {
 }
 
 void draw() {  
-
+  background(0);
   song1.setGain(set.getHs1Volume()* 0.86 - 80);
   song2.setGain(set.getHs2Volume()* 0.86 - 80);
   image(img, 0, 0, displayWidth/3, displayHeight/2);
