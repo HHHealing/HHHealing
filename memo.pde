@@ -64,6 +64,7 @@ class memo {
   void drawMemo(IntList Array) {
     fill(255);
     rect(Array.get(0), Array.get(1), Array.get(2), Array.get(3));
+    showWord();
   }
 
   int getMemoSize() {
@@ -97,14 +98,15 @@ class memo {
 
   void showWord() {
     fill(0);
-    for (int i = 0; i < word.length; i ++) {
+    for (int i = 0; i < memoArray.size(); i ++) {
       textSize(20);
-      text(word[i], displayWidth/3 + 60, size + 60 + (i * 80));
+      text(word[i], memoArray.get(i).get(0) + 20, memoArray.get(i).get(1) + 40);
     }
   }
 
   void memoDragged(int mx, int my, int number) {
     if (number <= 4) {
+      image(img, 0, 0, displayWidth/3, displayHeight/2);
       //memoArray.get(number).set(0, a);
       //memoArray.get(number).set(1, size + 20 + (number * 80));
 
@@ -133,6 +135,8 @@ class memo {
   void removeMemo(int number){
     if(number <= memoArray.size()){ 
       memoArray.remove(number);
+      word[number] = "";
     }
+
   }
 }
