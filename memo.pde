@@ -106,7 +106,6 @@ class memo {
 
   void memoDragged(int mx, int my, int number) {
     if (number <= 4) {
-      image(img, 0, 0, displayWidth/3, displayHeight/2);
       //memoArray.get(number).set(0, a);
       //memoArray.get(number).set(1, size + 20 + (number * 80));
 
