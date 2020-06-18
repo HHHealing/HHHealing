@@ -64,7 +64,7 @@ void mouseMoved() {
 
 }
 
-void mouseDragged() {
+void mouseDragged(){
   CheckMemoDragged = true;
   memo.memoDragged(mouseX, mouseY, a); 
   for (int i = 0; i < memo.getArrayList().size(); i ++) {
@@ -72,8 +72,8 @@ void mouseDragged() {
   }
 }
 
-void mouseReleased() {
-  if (mouseX >= 100 && mouseX <= 400 && mouseY >= 0 && mouseY <= displayHeight/2 && CheckMemoDragged) {
+void mouseReleased(){
+  if(mouseX <= 400 && mouseY >= 0 && mouseY <= displayHeight/2 && CheckMemoDragged) {
     memo.removeMemo(a);
     CheckMemoDragged = false;
   } 
