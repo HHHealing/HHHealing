@@ -129,4 +129,10 @@ class memo {
   ArrayList<IntList> getArrayList(){
    return memoArray;   
   }
+  
+  void removeMemo(int number){
+    if(number <= memoArray.size()){ 
+      memoArray.remove(number);
+    }
+  }
 }

@@ -8,6 +8,7 @@ int i;
 boolean Check = false;
 int mx, my ;
 int a;
+boolean CheckMemoDragged = false;
 
 
 Setting set = new Setting(); // 옵션창 객체 생성
@@ -64,7 +65,7 @@ void mouseMoved() {
 }
 
 void mouseDragged() {
-  //background(0);
+  CheckMemoDragged = true;
   memo.memoDragged(mouseX, mouseY, a); 
   for (int i = 0; i < memo.getArrayList().size(); i ++) {
     memo.drawMemo(memo.getArrayList().get(i));
@@ -72,7 +73,9 @@ void mouseDragged() {
 }
 
 void mouseReleased() {
-  if (mouseX <= 40 && mouseY <= 40) {
+  if (mouseX >= 100 && mouseX <= 400 && mouseY >= 0 && mouseY <= displayHeight/2 && CheckMemoDragged) {
+    memo.removeMemo(a);
+    CheckMemoDragged = false;
   } 
   else {
     if (a <= 4) {
