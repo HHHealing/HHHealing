@@ -7,16 +7,16 @@ class memo {
   ArrayList<IntList> memoArray;
   IntList A;
   String result = "";
-  String [] word;
+  ArrayList <String> word;
   int number;
   int x, y;
 
   void set() {
     img = loadImage("memo.png");
     img.resize(0, size);
-    word = new String[5];
-    for (int i = 0; i < word.length; i ++) {
-      word[i] = "";
+    word = new ArrayList <String> ();
+    for (int i = 0; i < 5; i ++) {
+      word.add(" ");
     }
     memoArray = new ArrayList();
   }
@@ -26,7 +26,7 @@ class memo {
     array = new IntList();
     A = new IntList();
     if (mouseClick()) {
-
+      word.add("");
       leng = memoArray.size();
 
       a = displayWidth/3 + 40;
@@ -92,7 +92,8 @@ class memo {
 
   void plusWord(String w) {
     if (number <= 4) {
-      word[number] += w;
+      w = word.get(number) + w;
+      word.set(number, w);
     }
   }
 
@@ -100,7 +101,7 @@ class memo {
     fill(0);
     for (int i = 0; i < memoArray.size(); i ++) {
       textSize(20);
-      text(word[i], memoArray.get(i).get(0) + 20, memoArray.get(i).get(1) + 40);
+      text(word.get(i), memoArray.get(i).get(0) + 20, memoArray.get(i).get(1) + 40);
     }
   }
 
@@ -134,7 +135,11 @@ class memo {
   void removeMemo(int number){
     if(number <= memoArray.size()){ 
       memoArray.remove(number);
-      word[number] = "";
+      word.remove(number);
+      for(int i = number ; i < memoArray.size(); i ++){
+          memoArray.get(i).set(1, memoArray.get(i).get(1) - 80);
+      }
+      
     }
 
   }
