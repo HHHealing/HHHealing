@@ -139,7 +139,7 @@ class memo {
       for(int i = number ; i < memoArray.size(); i ++){
           memoArray.get(i).set(1, memoArray.get(i).get(1) - 80);
       }
-      song3.play();
+      song3.play(1);
       
     }
 
