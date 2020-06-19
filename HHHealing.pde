@@ -2,7 +2,7 @@ import ddf.minim.*; // test
 
 PImage img;
 Minim minim;
-AudioPlayer song1, song2;
+AudioPlayer song1, song2, song3;
 public static ControlP5 slider; 
 int i;
 boolean Check = false;
@@ -23,6 +23,7 @@ void setup() {
   img = loadImage("fire.jpg");
   song1 = minim.loadFile("fire_music.mp3");
   song2 = minim.loadFile("yume.mp3");
+  song3 = minim.loadFile("memoFire.mp3");
   surface.setResizable(false);
   surface.setSize(disW, disH);
   ef.ImgSet();
