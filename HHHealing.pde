@@ -14,6 +14,7 @@ boolean CheckMemoDragged = false;
 Setting set = new Setting(); // 옵션창 객체 생성
 Effect ef = new Effect();
 memo memo = new memo();
+Diary diary = new Diary();
 
 void setup() {
   minim = new Minim(this);
@@ -39,6 +40,7 @@ void draw() {
   song2.setGain(set.getHs2Volume()* 0.86 - 80);
   image(img, 0, 0, displayWidth/3, displayHeight/2);
   set.btn();
+  diary.set();
 
   if (mousePressed) {
     mx = mouseX;
