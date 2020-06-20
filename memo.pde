@@ -10,6 +10,7 @@ class memo {
   ArrayList <String> word;
   int number;
   int x, y;
+  int [] RGB;
 
   void set() {
     img = loadImage("memo.png");
@@ -19,6 +20,7 @@ class memo {
       word.add(" ");
     }
     memoArray = new ArrayList();
+    Setting set = new Setting();
   }
 
   void Clicked() {
@@ -62,7 +64,8 @@ class memo {
   }
 
   void drawMemo(IntList Array) {
-    fill(255);
+    getRGB();
+    fill(RGB[0], RGB[1], RGB[2]);
     rect(Array.get(0), Array.get(1), Array.get(2), Array.get(3));
     showWord();
   }
@@ -142,6 +145,9 @@ class memo {
       song3.play(1);
       
     }
-
+  }
+  
+  void getRGB(){
+    RGB = set.RGB();
   }
 }

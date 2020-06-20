@@ -16,14 +16,19 @@ class Setting{
   ControlP5 slider;  
   Slider sl;
   boolean CheckSlider = false;
-  HScrollbar hs1, hs2;
+  HScrollbar hs1, hs2, sR, sG, sB;
   int mVolume = 50; // 모닥불 볼륨
   int bVolume = 50; // 배경음악 볼륨
+  int R = 100; int G = 100; int B = 100;
   PFont myFont;
+  int RGB [];
   
   void btn(){
     hs1 = new HScrollbar(378, 90, 100, 16, 16, mVolume);
     hs2 = new HScrollbar(378, 106 + size/2, 100, 16, 16, bVolume);
+    sR = new HScrollbar(378, 170, 100, 16, 16, R);
+    sG = new HScrollbar(378, 210, 100, 16, 16, G);
+    sB = new HScrollbar(378, 250, 100, 16, 16, B);
     SpeakerOn = loadImage("speaker_on.png");
     SpeakerOff = loadImage("speaker_off.png");
     
@@ -67,8 +72,17 @@ class Setting{
     hs1.display();
     hs2.update();
     hs2.display();
+    sR.update();
+    sR.display();
+    sG.update();
+    sG.display();
+    sB.update();
+    sB.display();
     mVolume = round(hs1.getPos1()); // 현재의 볼륨을 저장
     bVolume = round(hs2.getPos1());
+    R = round(sR.getR());
+    G = round(sG.getG());
+    B = round(sB.getB());
     
     myFont = createFont("한초롬바탕", 20);
     textFont(myFont);
@@ -76,7 +90,15 @@ class Setting{
     textAlign(CENTER, CENTER);
     text("효과음", 540, 85);
     text("배경음악", 540, 120);
+    fill(255, 0, 0);
+    text("R", 520, 165);
+    fill(0, 255, 0);
+    text("G", 520, 205);
+    fill(0, 0, 255);
+    text("B", 520, 245);
     
+    fill(round(R * 2.25), round(G * 2.25), round(B * 2.25));
+    rect(550, 185, 40, 40);
 
   }
 /*
@@ -104,5 +126,13 @@ class Setting{
   
   boolean CheckOption(){
      return CheckOption; 
+  }
+  
+  int[] RGB(){
+    RGB = new int[3];
+    RGB[0] = round(R*2.25);
+    RGB[1] = round(G*2.25);
+    RGB[2] = round(B*2.25);
+    return RGB;
   }
 }
