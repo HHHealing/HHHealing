@@ -14,6 +14,9 @@ class Diary {
   void drawDiary() {
     fill(255);
     rect(displayWidth/4 - x/2, displayHeight/4 - y/2, x, y);
+    fill(0);   
+    textAlign(CENTER, TOP);
+    text(year() +"."  + month() + "." + day(),displayWidth/4,displayHeight/4 -y/2);
   }
   void check() {
     if (mouseX>=displayWidth/3 && mouseX <= displayWidth/3+size && 
