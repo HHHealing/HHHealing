@@ -6,8 +6,10 @@ class Diary {
   boolean CheckDiary = false;
   String word;
   ArrayList<String> S;
+  PrintWriter output;
 
   void s() {
+    
     S = new ArrayList<String>(); 
     img = loadImage("diaryImage.png");
     img.resize(0, size);
@@ -44,7 +46,8 @@ class Diary {
     word = "";
     if (key == BACKSPACE) {
       S.remove(S.size()-1);
-    } else {
+    }
+    else {
       S.add(key + "");
     }
     for (int i = 0; i < S.size(); i++) {
@@ -53,6 +56,9 @@ class Diary {
     textSize(20);
     textAlign(LEFT);
     text(word, displayWidth/4 - x/2+ 10, displayHeight/4 - y/2 + 50);
+    output = createWriter(year() + "." + month() +  "." + day() + "." + hour() + ".txt"); 
+    output.print(word);
+    output.flush();
   }
   boolean getCheckDiary() {
     return CheckDiary;
