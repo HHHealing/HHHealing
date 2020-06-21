@@ -2,7 +2,7 @@ import ddf.minim.*; // test
 
 PImage img;
 Minim minim;
-AudioPlayer song1, song2, song3, song4;
+AudioPlayer song1, song2, song3, song4, song5;
 public static ControlP5 slider; 
 int i;
 boolean Check = false;
@@ -25,7 +25,8 @@ void setup() {
   song1 = minim.loadFile("fire_music.mp3");
   song2 = minim.loadFile("yume.mp3");
   song3 = minim.loadFile("memoFire.mp3");
-  song4 = minim.loadFile("backgroundBGM.mp4");
+  song4 = minim.loadFile("backgroundBGM.mp3");
+  song5 = minim.loadFile("반딧불이의저녁.mp3");
   surface.setResizable(false);
   surface.setSize(disW, disH);
   ef.ImgSet();
@@ -35,13 +36,17 @@ void setup() {
   song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
   song2.loop();
   song4.loop();
+  song5.loop();
   song4.mute();
+  song5.mute();
 }
 
 void draw() {  
   background(0);
   song1.setGain(set.getHs1Volume()* 0.86 - 80);
   song2.setGain(set.getHs2Volume()* 0.86 - 80);
+  song4.setGain(set.getHs2Volume()* 0.86 - 80);
+  song5.setGain(set.getHs2Volume()* 0.86 - 80);
   image(img, 0, 0, displayWidth/3, displayHeight/2);
   set.btn();
   diary.set();

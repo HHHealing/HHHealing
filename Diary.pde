@@ -45,7 +45,9 @@ class Diary {
   void writeDiary() {
     word = "";
     if (key == BACKSPACE) {
-      S.remove(S.size()-1);
+      if(S.size() != 0){
+        S.remove(S.size()-1);
+      }
     }
     else {
       S.add(key + "");

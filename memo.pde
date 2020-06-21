@@ -20,7 +20,6 @@ class memo {
       word.add(" ");
     }
     memoArray = new ArrayList();
-    Setting set = new Setting();
   }
 
   void Clicked() {
@@ -105,6 +104,7 @@ class memo {
     fill(0);
     for (int i = 0; i < memoArray.size(); i ++) {
       textSize(20);
+      textAlign(LEFT);
       text(word.get(i), memoArray.get(i).get(0) + 20, memoArray.get(i).get(1) + 40);
     }
   }
