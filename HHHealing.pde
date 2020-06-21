@@ -31,8 +31,8 @@ void setup() {
   memo.set();
   diary.s();
 
-  //song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
-  //song2.loop();
+  song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
+  song2.loop();
 }
 
 void draw() {  
