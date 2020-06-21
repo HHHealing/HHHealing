@@ -29,6 +29,7 @@ void setup() {
   surface.setSize(disW, disH);
   ef.ImgSet();
   memo.set();
+  diary.s();
 
   //song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
   //song2.loop();
@@ -58,6 +59,9 @@ void draw() {
 
 void keyPressed() {
   memo.plusWord(key + "");
+  if(diary.getCheckDiary()){
+      diary.writeDiary();
+  }
 }
 
 void mouseMoved() {    
