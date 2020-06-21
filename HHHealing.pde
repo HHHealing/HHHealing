@@ -48,7 +48,7 @@ void draw() {
     my = mouseY;
     i = 0;
   }
-  if (!set.CheckOption() && mx <= displayWidth/3) {
+  if (!set.CheckOption() && mx <= displayWidth/3 && !diary.getCheckDiary()) {
     ef.drawImage(mx, my, i);
   }
   i ++;
