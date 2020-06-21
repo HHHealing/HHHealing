@@ -145,8 +145,9 @@ class Setting {
     rect(displayWidth/4 - x/2 + 75, 330, 150, 40);
     rect(displayWidth/4 - x/2 + 75, 380, 150, 40);
     fill(0);
-    text("배경음악.1", displayWidth/4 - x/2 + 150, 300);
-    text("배경음악.2", displayWidth/4 - x/2 + 150, 350);
+    text("배경음악1", displayWidth/4 - x/2 + 150, 300);
+    text("배경음악2", displayWidth/4 - x/2 + 150, 350);
+    text("배경음악3", displayWidth/4 - x/2 + 150, 400);
   }
 
   void soundChange() {
