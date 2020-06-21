@@ -10,7 +10,7 @@ PImage img;
 
 void setup(){
   size(640, 480);
-  video = new Capture(this, 640, 480); 
+  video = new Capture(this, 640, 480);
   video.start();
   img = loadImage("hyo.png");
   imageMode(CORNER);

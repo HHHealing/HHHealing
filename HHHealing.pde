@@ -2,15 +2,19 @@ import ddf.minim.*; // test
 
 PImage img;
 Minim minim;
-AudioPlayer song1, song2;
+AudioPlayer song1, song2, song3, song4, song5;
 public static ControlP5 slider; 
 int i;
 boolean Check = false;
-int mx, my;
+int mx, my ;
+int a;
+boolean CheckMemoDragged = false;
+
 
 Setting set = new Setting(); // 옵션창 객체 생성
 Effect ef = new Effect();
 memo memo = new memo();
+Diary diary = new Diary();
 
 void setup() {
   minim = new Minim(this);
@@ -20,36 +24,81 @@ void setup() {
   img = loadImage("fire.jpg");
   song1 = minim.loadFile("fire_music.mp3");
   song2 = minim.loadFile("yume.mp3");
+  song3 = minim.loadFile("memoFire.mp3");
+  song4 = minim.loadFile("backgroundBGM.mp3");
+  song5 = minim.loadFile("반딧불이의저녁.mp3");
   surface.setResizable(false);
   surface.setSize(disW, disH);
   ef.ImgSet();
   memo.set();
-  
-  //song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
-  //song2.loop();
+  diary.s();
+
+  song1.loop(); // 작업하는데 소리가 계속 들려서 잠시 꺼둠
+  song2.loop();
+  song4.loop();
+  song5.loop();
+  song4.mute();
+  song5.mute();
 }
 
 void draw() {  
-  
+  background(0);
   song1.setGain(set.getHs1Volume()* 0.86 - 80);
   song2.setGain(set.getHs2Volume()* 0.86 - 80);
+  song4.setGain(set.getHs2Volume()* 0.86 - 80);
+  song5.setGain(set.getHs2Volume()* 0.86 - 80);
   image(img, 0, 0, displayWidth/3, displayHeight/2);
   set.btn();
+  diary.set();
 
-  if(mousePressed){
+  if (mousePressed) {
     mx = mouseX;
     my = mouseY;
     i = 0;
   }
-  if(!set.CheckOption() && mx <= displayWidth/3){
-    ef.drawImage(mx, my, i); 
+  if (!set.CheckOption() && mx <= displayWidth/3 && !diary.getCheckDiary()) {
+    ef.drawImage(mx, my, i);
   }
   i ++;
-  
-  
+
+
   memo.Clicked();
 }
 
+void keyPressed() {
+  memo.plusWord(key + "");
+  if(diary.getCheckDiary()){
+      diary.writeDiary();
+  }
+}
+
+void mouseMoved() {    
+  if (!mousePressed) {
+    a = memo.getMemoPoint(); 
+  }
+
+}
+
+void mouseDragged(){
+  CheckMemoDragged = true;
+  memo.memoDragged(mouseX, mouseY, a); 
+  for (int i = 0; i < memo.getArrayList().size(); i ++) {
+    memo.drawMemo(memo.getArrayList().get(i));
+  }
+}
+
+void mouseReleased(){
+  if(mouseX <= 400 && mouseY >= 0 && mouseY <= displayHeight/2 && CheckMemoDragged) {
+    memo.removeMemo(a);
+    CheckMemoDragged = false;
+  } 
+  else {
+    if (a <= 4) {
+      memo.memoDragged(680, 120 + 80 * a, a);
+      //print(clikckedMemo + ", " + a + "   ");
+    }
+  }
+}
 
 
 void stop() {
