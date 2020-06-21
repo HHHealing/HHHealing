@@ -64,6 +64,7 @@ class memo {
   }
 
   void drawMemo(IntList Array) {
+    song1.close();
     getRGB();
     fill(RGB[0], RGB[1], RGB[2]);
     rect(Array.get(0), Array.get(1), Array.get(2), Array.get(3));
