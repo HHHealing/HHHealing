@@ -7,7 +7,7 @@ class Diary {
   String word;
   ArrayList<String> S;
   PrintWriter output;
-
+  int[] RGB;
   void s() {
     
     S = new ArrayList<String>(); 
@@ -15,13 +15,13 @@ class Diary {
     img.resize(0, size);
   }
 
-  void set() {
-
+  void set() {   
     image(img, displayWidth/3, 0, size, size);
     check();
   }
   void drawDiary() {
-    fill(255);
+    RGB = set.RGB();
+    fill(RGB[0], RGB[1], RGB[2]);   
     rect(displayWidth/4 - x/2, displayHeight/4 - y/2, x, y);
     fill(0);   
     textAlign(CENTER, TOP);
