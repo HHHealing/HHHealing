@@ -1,4 +1,7 @@
 import ddf.minim.*; // test
+import gab.opencv.*;
+import processing.video.*;
+import java.awt.Rectangle;
 
 PImage img;
 Minim minim;
@@ -9,14 +12,20 @@ boolean Check = false;
 int mx, my ;
 int a;
 boolean CheckMemoDragged = false;
+Capture video;
+OpenCV opencv;
+Rectangle[] faces;
 
 
 Setting set = new Setting(); // 옵션창 객체 생성
 Effect ef = new Effect();
 memo memo = new memo();
 Diary diary = new Diary();
+face f = new face();
 
 void setup() {
+  
+  
   minim = new Minim(this);
   int disW = displayWidth/2;
   int disH = displayHeight/2;
@@ -39,9 +48,12 @@ void setup() {
   song5.loop();
   song4.mute();
   song5.mute();
+  
+  video = new Capture(this, displayWidth/2, displayHeight/2);
 }
 
-void draw() {  
+void draw() { 
+
   background(0);
   song1.setGain(set.getHs1Volume()* 0.86 - 80);
   song2.setGain(set.getHs2Volume()* 0.86 - 80);
@@ -60,9 +72,12 @@ void draw() {
     ef.drawImage(mx, my, i);
   }
   i ++;
-
-
-  memo.Clicked();
+  memo.Clicked();  
+  
+  opencv = new OpenCV(this, video);
+  f.videoSetting();
+  f.videoCheck();
+  
 }
 
 void keyPressed() {
