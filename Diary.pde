@@ -58,7 +58,7 @@ class Diary {
     textSize(20);
     textAlign(LEFT);
     text(word, displayWidth/4 - x/2+ 10, displayHeight/4 - y/2 + 50);
-    output = createWriter(year() + "." + month() +  "." + day() + "." + hour() + ".txt"); 
+    output = createWriter("diary/" + year() + "." + month() +  "." + day() + "." + hour() + ".txt"); 
     output.print(word);
     output.flush();
   }
