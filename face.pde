@@ -9,7 +9,7 @@ class face {
 
     videoImg = loadImage("video.png");
     videoImg.resize(0, 100);
-    image(videoImg, displayWidth/3 + 110, 0);
+    image(videoImg, 640 + 110, 0);
     imageMode(CORNER);
   }
 
@@ -27,7 +27,7 @@ class face {
     }
   }
   void videoCheck(){
-     if(mousePressed && mouseX >= displayWidth/3 + 110 && mouseX <= displayWidth/3 + 210 && mouseY <= 100){
+     if(mousePressed && mouseX >= 480 + 110 && mouseX <= 480 + 210 && mouseY <= 100){
         CheckVideo = true;
         video.start();
      }

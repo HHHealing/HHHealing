@@ -16,26 +16,26 @@ class Diary {
   }
 
   void set() {   
-    image(img, displayWidth/3, 0, size, size);
+    image(img, 640, 0, size, size);
     check();
   }
   void drawDiary() {
     RGB = set.RGB();
     fill(RGB[0], RGB[1], RGB[2]);   
-    rect(displayWidth/4 - x/2, displayHeight/4 - y/2, x, y);
+    rect(480 - x/2,270 - y/2, x, y);
     fill(0);   
     textAlign(CENTER, TOP);
-    text(year() +"."  + month() + "." + day(), displayWidth/4, displayHeight/4 -y/2);
+    text(year() +"."  + month() + "." + day(), 480, 270 -y/2);
     WD();
   }
   void check() {
-    if (mouseX>=displayWidth/3 && mouseX <= displayWidth/3+size && 
+    if (mouseX>=640 && mouseX <= 640+size && 
       mouseY>= 0 && mouseY<= size && mousePressed && !CheckDiary ) {
       CheckDiary = true;
     } else if (CheckDiary) {
-      if (mousePressed && !(mouseX >= displayWidth/4 - x/2 && 
-        mouseX <= displayWidth/4 - x/2 + x && mouseY >= displayHeight/4 - y/2 &&
-        mouseY <= displayHeight/4 - y/2 + y)) {
+      if (mousePressed && !(mouseX >= 480 - x/2 && 
+        mouseX <= 480 - x/2 + x && mouseY >= 270 - y/2 &&
+        mouseY <= 270 - y/2 + y)) {
         CheckDiary = false;
       } else {
         drawDiary();
@@ -57,7 +57,7 @@ class Diary {
     }
     textSize(20);
     textAlign(LEFT);
-    text(word, displayWidth/4 - x/2+ 10, displayHeight/4 - y/2 + 50);
+    text(word, 480 - x/2+ 10, 270 - y/2 + 50);
     output = createWriter("diary/" + year() + "." + month() +  "." + day() + "." + hour() + ".txt"); 
     output.print(word);
     output.flush();
@@ -72,6 +72,6 @@ class Diary {
     }
     textSize(20);
     textAlign(LEFT);
-    text(word, displayWidth/4 - x/2 + 10, displayHeight/4 - y/2 + 50);
+    text(word, 480 - x/2 + 10, 270 - y/2 + 50);
   }
 }

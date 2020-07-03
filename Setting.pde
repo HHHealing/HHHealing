@@ -38,7 +38,7 @@ class Setting {
     image(img, 0, 0, size, size); // 이미지 삽입
     if (CheckOption) { // 설정창이 켜져 있을 경우
 
-      if (mousePressed && !(mouseX >= displayWidth/4 - x/2 && mouseX <= displayWidth/4 - x/2 + x && mouseY >= displayHeight/4 - y/2 && mouseY <= displayHeight/4 - y/2 + y)) { // 설정창 외의 곳을 클릭한 경우 설정창 닫기
+      if (mousePressed && !(mouseX >= 480 - x/2 && mouseX <= 480 - x/2 + x && mouseY >= 270 - y/2 && mouseY <= 270 - y/2 + y)) { // 설정창 외의 곳을 클릭한 경우 설정창 닫기
         CheckOption = false;
       } 
       else { // 설정창 내부를 클릭한 경우는 그대로 출력
@@ -61,9 +61,9 @@ class Setting {
 
   void drawOption() {  
     fill(204, 102, 0);
-    rect(displayWidth/4 - x/2, displayHeight/4 - y/2, x, y);  // 330, 70, 300, 400        
-    image(SpeakerOn, displayWidth/4 - x/2, displayHeight/4 - y/2, size, size);
-    image(SpeakerOn, displayWidth/4 - x/2, displayHeight/4 - y/2 + size, size, size);
+    rect(480 - x/2, 270 - y/2, x, y);  // 330, 70, 300, 400        
+    image(SpeakerOn, 480 - x/2, 270 - y/2, size, size);
+    image(SpeakerOn, 480 - x/2, 270 - y/2 + size, size, size);
     if (!CheckSlider) {
       //drawSliderBar();
       CheckSlider = true;
@@ -141,28 +141,28 @@ class Setting {
   void selectMusic() {
     fill(255);
     textAlign(CENTER);    
-    rect(displayWidth/4 - x/2 + 75, 280, 150, 40);    
-    rect(displayWidth/4 - x/2 + 75, 330, 150, 40);
-    rect(displayWidth/4 - x/2 + 75, 380, 150, 40);
+    rect(480 - x/2 + 75, 280, 150, 40);    
+    rect(480 - x/2 + 75, 330, 150, 40);
+    rect(480 - x/2 + 75, 380, 150, 40);
     fill(0);
-    text("배경음악1", displayWidth/4 - x/2 + 150, 300);
-    text("배경음악2", displayWidth/4 - x/2 + 150, 350);
-    text("배경음악3", displayWidth/4 - x/2 + 150, 400);
+    text("배경음악1", 480 - x/2 + 150, 300);
+    text("배경음악2", 480 - x/2 + 150, 350);
+    text("배경음악3", 480 - x/2 + 150, 400);
   }
 
   void soundChange() {
-    if (CheckOption && mousePressed && mouseX >= displayWidth/4 - x/2 + 75 && mouseX <= displayWidth/4 - x/2 + 225 && mouseY >= 280 && mouseY <= 320) {
+    if (CheckOption && mousePressed && mouseX >= 480 - x/2 + 75 && mouseX <= 480 - x/2 + 225 && mouseY >= 280 && mouseY <= 320) {
       song2.unmute();
       song5.mute();
       song4.mute();
       
     } 
-    else if (CheckOption && mousePressed && mouseX >= displayWidth/4 - x/2 + 75 && mouseX <= displayWidth/4 - x/2 + 225 && mouseY >= 330 && mouseY <= 370) {
+    else if (CheckOption && mousePressed && mouseX >= 480 - x/2 + 75 && mouseX <= 480 - x/2 + 225 && mouseY >= 330 && mouseY <= 370) {
       song2.mute();
       song4.unmute();
       song5.mute();
     }
-    else if(CheckOption && mousePressed && mouseX >= displayWidth/4 - x/2 + 75 && mouseX <= displayWidth/4 - x/2 + 225 && mouseY >= 380 && mouseY <= 420){
+    else if(CheckOption && mousePressed && mouseX >= 480 - x/2 + 75 && mouseX <= 480 - x/2 + 225 && mouseY >= 380 && mouseY <= 420){
       song2.mute();
       song4.mute();
       song5.unmute();

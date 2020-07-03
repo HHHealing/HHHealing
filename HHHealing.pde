@@ -24,11 +24,11 @@ Diary diary = new Diary();
 face f = new face();
 
 void setup() {
-  
+  print(displayWidth/2, displayHeight/2);
   
   minim = new Minim(this);
-  int disW = displayWidth/2;
-  int disH = displayHeight/2;
+  int disW = 960;
+  int disH = 540;
   background(0);
   img = loadImage("fire.jpg");
   song1 = minim.loadFile("fire_music.mp3");
@@ -49,7 +49,7 @@ void setup() {
   song4.mute();
   song5.mute();
   
-  video = new Capture(this, displayWidth/2, displayHeight/2);
+  video = new Capture(this, 960, 540);
 }
 
 void draw() { 
@@ -59,7 +59,7 @@ void draw() {
   song2.setGain(set.getHs2Volume()* 0.86 - 80);
   song4.setGain(set.getHs2Volume()* 0.86 - 80);
   song5.setGain(set.getHs2Volume()* 0.86 - 80);
-  image(img, 0, 0, displayWidth/3, displayHeight/2);
+  image(img, 0, 0, 640, 540);
   set.btn();
   diary.set();
 
@@ -68,7 +68,7 @@ void draw() {
     my = mouseY;
     i = 0;
   }
-  if (!set.CheckOption() && mx <= displayWidth/3 && !diary.getCheckDiary()) {
+  if (!set.CheckOption() && mx <= 640 && !diary.getCheckDiary()) {
     ef.drawImage(mx, my, i);
   }
   i ++;
@@ -103,7 +103,7 @@ void mouseDragged(){
 }
 
 void mouseReleased(){
-  if(mouseX <= 400 && mouseY >= 0 && mouseY <= displayHeight/2 && CheckMemoDragged) {
+  if(mouseX <= 400 && mouseY >= 0 && mouseY <= 540 && CheckMemoDragged) {
     memo.removeMemo(a);
     CheckMemoDragged = false;
   } 

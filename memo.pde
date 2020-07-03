@@ -23,14 +23,14 @@ class memo {
   }
 
   void Clicked() {
-    image(img, displayWidth/2 - size, 0);
+    image(img, 960 - size, 0);
     array = new IntList();
     A = new IntList();
     if (mouseClick()) {
       word.add("");
       leng = memoArray.size();
 
-      a = displayWidth/3 + 40;
+      a = 640 + 40;
       b = size + 20 + (leng * 80);
       c = 200;
       d = 70;
@@ -55,7 +55,7 @@ class memo {
   }
 
   boolean mouseClick() {
-    if (mousePressed && mouseX >= displayWidth/2 - size && mouseX <= displayWidth/2 && mouseY <= size) {
+    if (mousePressed && mouseX >= 960 - size && mouseX <= 960 && mouseY <= size) {
       return true;
     } else {
       return false;
